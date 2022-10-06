@@ -64,7 +64,10 @@ class App extends React.Component {
       number,
     };
 
-    this.setState(prevState => ({ contacts: [contact, ...prevState.contacts] }));
+    this.setState(prevState => {
+      if (!prevState.contacts) return { contacts: [contact] };
+      return { contacts: [contact, ...prevState.contacts] };
+    });
 
     return true;
   };
