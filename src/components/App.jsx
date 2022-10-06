@@ -44,11 +44,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    console.dir(this.state.contacts.length);
-
     this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
-
-    console.dir(this.state.contacts);
   }
 
   componentDidUpdate(prevProps, prevState) {
