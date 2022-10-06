@@ -1,27 +1,10 @@
-import ButtonWithIcon from 'components/IconButton/IconButton.styled';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import React from 'react';
+import Form from './ContactForm.styled';
+import ButtonWithIcon from 'components/IconButton/IconButton.styled';
 
 import { HiOutlineUserAdd } from 'react-icons/hi';
-import styled from 'styled-components';
-
-const Form = styled.form`
-  display: flex;
-
-  label {
-    display: flex;
-    flex-direction: column;
-    margin: 0 20px;
-  }
-
-  button {
-    background-color: transparent;
-    border: none;
-
-    cursor: pointer;
-  }
-`;
 
 class ContactForm extends React.Component {
   state = {
