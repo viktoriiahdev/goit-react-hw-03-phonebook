@@ -45,6 +45,8 @@ class App extends React.Component {
 
   componentDidMount() {
     this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
+
+    console.dir(this.state);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -83,9 +85,10 @@ class App extends React.Component {
     const { contacts, filter } = this.state;
 
     const searchString = filter.toLowerCase();
-    const visibleContacts = contacts.filter(({ name }) =>
-      name.toLowerCase().includes(searchString)
-    );
+    let visibleContacts = [];
+    if (contacts.length) {
+      visibleContacts = contacts.filter(({ name }) => name.toLowerCase().includes(searchString));
+    }
     return (
       <Phonebook>
         <Section className="Phonebook__sidebar">
