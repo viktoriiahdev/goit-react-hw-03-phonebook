@@ -53,7 +53,7 @@ class App extends React.Component {
   }
 
   addContact = ({ name, number }) => {
-    if (this.state.contacts.some(contact => contact.name === name)) {
+    if (this.state.contacts && this.state.contacts.some(contact => contact.name === name)) {
       alert(`${name} already exist`);
       return false;
     }
