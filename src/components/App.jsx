@@ -44,9 +44,11 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    console.dir(this.state.contacts.length);
+
     this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
 
-    console.dir(this.state);
+    console.dir(this.state.contacts);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -86,7 +88,8 @@ class App extends React.Component {
 
     const searchString = filter.toLowerCase();
     let visibleContacts = [];
-    if (contacts.length) {
+
+    if (contacts) {
       visibleContacts = contacts.filter(({ name }) => name.toLowerCase().includes(searchString));
     }
     return (
